@@ -4,9 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DRAGONAI</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <p>test commit</p>
-  <p>hhahaaas</p>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="Assets/DragonAi LOGO v3.png" alt="DragonAI Logo" class="logo-img">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#home"   data-en="Home"     data-zh="首页">Home</a></li>
+      <li><a href="#services" data-en="Services" data-zh="服务">Services</a></li>
+      <li><a href="#about"  data-en="About"    data-zh="关于">About</a></li>
+      <li><a href="#blog"   data-en="Blog"     data-zh="博客">Blog</a></li>
+      <li><a href="#contact" data-en="Contact"  data-zh="联系">Contact</a></li>
+    </ul>
+
+    <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">
+      <span class="lang-icon">🌐</span>
+      <span id="langLabel">中文</span>
+    </button>
+  </nav>
+
+  <main>
+    <section id="home"     class="section"><h2 data-en="Home"     data-zh="首页">Home</h2></section>
+    <section id="services" class="section"><h2 data-en="Services" data-zh="服务">Services</h2></section>
+    <section id="about"    class="section"><h2 data-en="About"    data-zh="关于">About</h2></section>
+    <section id="blog"     class="section"><h2 data-en="Blog"     data-zh="博客">Blog</h2></section>
+    <section id="contact"  class="section"><h2 data-en="Contact"  data-zh="联系">Contact</h2></section>
+  </main>
+
+  <script>
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'zh' : 'en';
+      const label = document.getElementById('langLabel');
+      label.textContent = currentLang === 'en' ? '中文' : 'English';
+
+      document.querySelectorAll('[data-en][data-zh]').forEach(el => {
+        el.textContent = el.dataset[currentLang];
+      });
+    }
+  </script>
+
 </body>
 </html>
