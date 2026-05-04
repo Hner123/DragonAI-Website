@@ -13,6 +13,9 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="index.css">
+
+  <!-- Apply saved theme instantly to avoid flash -->
+  <script>if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light-early');</script>
 </head>
 <body>
 
@@ -502,10 +505,23 @@
       a.addEventListener('click', () => navLinks.classList.remove('open'))
     );
 
-    /* Theme toggle */
+    /* Theme toggle — persist across refreshes */
     const themeToggle = document.getElementById('themeToggle');
+
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+    }
+
     themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light');
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    /* Restore scroll position */
+    const savedScroll = sessionStorage.getItem('scrollY');
+    if (savedScroll) window.scrollTo({ top: parseInt(savedScroll), behavior: 'instant' });
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.setItem('scrollY', window.scrollY);
     });
 
     /* Partners drag-to-scroll */
