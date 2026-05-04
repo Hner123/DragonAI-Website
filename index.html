@@ -67,7 +67,16 @@
       <div class="orb orb-3"></div>
     </div>
 
-    <div class="hero-inner">
+    <!-- Video layer (slide 2 background) -->
+    <div class="hero-video-layer">
+      <video class="hero-video" id="heroVideo" muted loop playsinline preload="metadata">
+        <source src="Assets/HOK_vid.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <!-- Slide 1: original content -->
+    <div class="hero-inner hero-slide-1">
 
       <!-- Copy -->
       <div>
@@ -131,6 +140,38 @@
       </div>
 
     </div>
+
+    <!-- Slide 2: video overlay content -->
+    <div class="hero-video-text">
+      <div class="hvt-inner">
+        <span class="s-tag hvt-tag">Campaign Spotlight</span>
+        <h2 class="hvt-title">
+          Honor of Kings<br>
+          <span class="grad-text">Philippines Launch</span>
+        </h2>
+        <p class="hvt-desc">
+          Dragon AI led the Philippine launch of the world's most-played mobile game —
+          delivering a multi-channel campaign that united millions of Filipino gamers
+          and shattered every brand awareness benchmark.
+        </p>
+        <div class="hero-actions hvt-actions">
+          <a href="#projects" class="btn-primary">
+            View Campaign
+            <i class="fi fi-rr-arrow-right btn-icon"></i>
+          </a>
+          <a href="contact.html" class="btn-ghost">Work With Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation arrows -->
+    <button class="hero-arrow hero-arrow-prev" id="heroPrev" aria-label="Previous slide">
+      <i class="fi fi-rr-angle-left"></i>
+    </button>
+    <button class="hero-arrow hero-arrow-next" id="heroNext" aria-label="Next slide">
+      <i class="fi fi-rr-angle-right"></i>
+    </button>
+
   </section>
 
   <!-- =====================
@@ -709,6 +750,29 @@
     /* Duplicate testimonial cards for infinite scroll */
     const track = document.getElementById('testiTrack');
     if (track) track.innerHTML += track.innerHTML;
+
+    /* Hero slider */
+    const heroSection = document.querySelector('.hero');
+    const heroVideo   = document.getElementById('heroVideo');
+    const heroPrev    = document.getElementById('heroPrev');
+    const heroNext    = document.getElementById('heroNext');
+    let heroSlide = 1;
+
+    function goToHeroSlide(n) {
+      if (n === heroSlide) return;
+      heroSlide = n;
+      if (n === 2) {
+        heroSection.classList.add('hero--video');
+        heroVideo.play();
+      } else {
+        heroSection.classList.remove('hero--video');
+        /* Pause video slightly after fade-out transition completes */
+        setTimeout(() => { heroVideo.pause(); heroVideo.currentTime = 0; }, 650);
+      }
+    }
+
+    heroNext.addEventListener('click', () => goToHeroSlide(2));
+    heroPrev.addEventListener('click', () => goToHeroSlide(1));
   </script>
 
 </body>
