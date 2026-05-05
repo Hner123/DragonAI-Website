@@ -1,7 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Dragon AI</title>
+  <title>Projects | Dragon AI</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
       </ul>
 
       <div class="nav-right">
-        <a href="#contact-form" class="nav-cta">Get Started</a>
+        <a href="index.html#contact" class="nav-cta">Get Started</a>
 
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
@@ -68,135 +68,106 @@
   </nav>
 
   <!-- =====================
-       HERO
+       PROJECTS HERO
   ===================== -->
-  <section class="contact-hero">
+  <section class="about-hero">
     <div class="hero-bg">
       <div class="hero-grid"></div>
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
     </div>
-    <div class="contact-hero-inner reveal">
-      <span class="s-tag">Contact Us</span>
+
+    <div class="about-hero-inner reveal">
+      <span class="s-tag">Our Work</span>
       <h1 class="hero-title">
-        Let's build something<br>
-        <span class="grad-text">remarkable together</span>
+        Projects that define<br>
+        <span class="grad-text">our impact</span>
       </h1>
       <p class="hero-desc">
-        Whether you're ready to launch a campaign or just exploring possibilities,
-        our team is here to help. Reach out and let's start the conversation.
+        A showcase of campaigns, launches, and brand activations we've delivered
+        for leading brands across the Philippines and the Asia-Pacific region.
       </p>
     </div>
   </section>
 
   <!-- =====================
-       CONTACT MAIN
+       PROJECTS GRID
   ===================== -->
-  <section class="contact-section" id="contact-form">
+  <section class="projects-section" id="projects">
     <div class="s-inner">
-      <div class="contact-grid">
+      <div class="s-header center reveal">
+        <span class="s-tag">Campaigns</span>
+        <h2 class="s-title">Brand stories we've built</h2>
+        <p class="s-desc">From OOH placements to full-scale digital campaigns — every project is a testament to what's possible when strategy meets creativity.</p>
+      </div>
 
-        <!-- FORM -->
-        <div class="contact-form-wrap reveal">
-          <h2 class="contact-form-title">Send us a message</h2>
-          <p class="contact-form-sub">Fill in the form below and we'll get back to you within one business day.</p>
+      <div class="projects-grid">
 
-          <form class="contact-form" id="contactForm" novalidate>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label class="form-label" for="fname">Full Name <span class="form-required">*</span></label>
-                <input class="form-input" type="text" id="fname" name="name" placeholder="Juan dela Cruz" required>
-              </div>
-              <div class="form-field">
-                <label class="form-label" for="femail">Email Address <span class="form-required">*</span></label>
-                <input class="form-input" type="email" id="femail" name="email" placeholder="juan@company.com" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label class="form-label" for="fcompany">Company / Brand</label>
-                <input class="form-input" type="text" id="fcompany" name="company" placeholder="Your company name">
-              </div>
-              <div class="form-field">
-                <label class="form-label" for="fservice">Service of Interest</label>
-                <select class="form-input form-select" id="fservice" name="service">
-                  <option value="" disabled selected>Select a service…</option>
-                  <option value="creative">Creative Services</option>
-                  <option value="media">Media Buying</option>
-                  <option value="partnership">Partnership &amp; Activations</option>
-                  <option value="production">Production</option>
-                  <option value="other">Other / General Inquiry</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label class="form-label" for="fmessage">Message <span class="form-required">*</span></label>
-              <textarea class="form-input" id="fmessage" name="message" placeholder="Tell us about your project, goals, or questions…" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary contact-submit" id="submitBtn">
-              Send Message
-              <i class="fi fi-rr-paper-plane btn-icon"></i>
-            </button>
-
-          </form>
-
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon"><i class="fi fi-rr-check-circle"></i></div>
-            <div class="form-success-title">Message sent!</div>
-            <p class="form-success-msg">Thank you for reaching out. We'll get back to you within one business day.</p>
+        <div class="pj-card reveal d1">
+          <div class="pj-img-wrap">
+            <img src="Assets/huawei.png" alt="Huawei Campaign" class="pj-img">
+            <span class="pj-badge">OOH + Digital</span>
+          </div>
+          <div class="pj-body">
+            <h3 class="pj-title">Huawei</h3>
+            <p class="pj-desc">Smartphone launch campaign across the Philippines — combining outdoor media, digital placements, and community activations for maximum market penetration.</p>
           </div>
         </div>
 
-        <!-- INFO -->
-        <div class="contact-info-wrap reveal d2">
-
-          <div class="contact-info-card">
-            <div class="ci-icon ic-orange"><i class="fi fi-rr-envelope"></i></div>
-            <div>
-              <div class="ci-label">Email</div>
-              <div class="ci-value"><a href="mailto:hello@dragonai.ph">hello@dragonai.ph</a></div>
-            </div>
+        <div class="pj-card reveal d2">
+          <div class="pj-img-wrap">
+            <img src="Assets/h.png" alt="Haidilao Campaign" class="pj-img">
+            <span class="pj-badge">Events + OOH</span>
           </div>
-
-          <div class="contact-info-card">
-            <div class="ci-icon ic-amber"><i class="fi fi-rr-phone-call"></i></div>
-            <div>
-              <div class="ci-label">Phone</div>
-              <div class="ci-value"><a href="tel:+6328XXXXXXX">+63 (2) 8XXX-XXXX</a></div>
-            </div>
+          <div class="pj-body">
+            <h3 class="pj-title">Haidilao</h3>
+            <p class="pj-desc">Brand expansion campaign for Haidilao's entry into the Philippine market — driving footfall through targeted OOH placements and experiential events.</p>
           </div>
+        </div>
 
-          <div class="contact-info-card">
-            <div class="ci-icon ic-blue"><i class="fi fi-rr-marker"></i></div>
-            <div>
-              <div class="ci-label">Address</div>
-              <div class="ci-value">5th Floor, Salustiana D. Ty Tower<br>104 Paseo de Roxas Ave, Makati City<br>Metro Manila, Philippines</div>
-            </div>
+        <div class="pj-card reveal d3">
+          <div class="pj-img-wrap">
+            <img src="Assets/oj.png" alt="OMODA | JAECOO Campaign" class="pj-img">
+            <span class="pj-badge">Auto Launch</span>
           </div>
-
-          <div class="contact-info-card">
-            <div class="ci-icon ic-green"><i class="fi fi-rr-clock"></i></div>
-            <div>
-              <div class="ci-label">Business Hours</div>
-              <div class="ci-value">Mon – Fri &nbsp;·&nbsp; 9:00 AM – 6:00 PM PHT</div>
-            </div>
+          <div class="pj-body">
+            <h3 class="pj-title">OMODA | JAECOO</h3>
+            <p class="pj-desc">Full-scale auto brand launch blending media buying, influencer partnerships, and live showcase events that put OMODA and JAECOO on the map in APAC.</p>
           </div>
+        </div>
 
-          <div class="contact-social-block">
-            <div class="contact-social-title">Follow us</div>
-            <div class="contact-social-row">
-              <a href="#" class="social-btn contact-social-btn" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
-              <a href="#" class="social-btn contact-social-btn" aria-label="X / Twitter"><i class="fi fi-brands-twitter"></i></a>
-              <a href="#" class="social-btn contact-social-btn" aria-label="LinkedIn"><i class="fi fi-brands-linkedin"></i></a>
-              <a href="#" class="social-btn contact-social-btn" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
-            </div>
+        <div class="pj-card reveal d1">
+          <div class="pj-img-wrap">
+            <img src="Assets/alibaba.png" alt="Alibaba Cloud Campaign" class="pj-img">
+            <span class="pj-badge">Digital Campaign</span>
           </div>
+          <div class="pj-body">
+            <h3 class="pj-title">Alibaba Cloud</h3>
+            <p class="pj-desc">Enterprise-focused digital campaign positioning Alibaba Cloud as the go-to cloud solution for Philippine businesses — leveraging multi-channel media and strategic placements.</p>
+          </div>
+        </div>
 
+        <div class="pj-card reveal d2">
+          <div class="pj-img-wrap">
+            <img src="Assets/buz.png" alt="Buz Campaign" class="pj-img">
+            <span class="pj-badge">App + Digital</span>
+          </div>
+          <div class="pj-body">
+            <h3 class="pj-title">Buz</h3>
+            <p class="pj-desc">Digital-first launch campaign for the Buz platform — crafting creative content, social media activations, and targeted ads that drove rapid user adoption.</p>
+          </div>
+        </div>
+
+        <div class="pj-card reveal d3">
+          <div class="pj-img-wrap">
+            <img src="Assets/infinite.png" alt="Level Infinite Campaign" class="pj-img">
+            <span class="pj-badge">Gaming + Events</span>
+          </div>
+          <div class="pj-body">
+            <h3 class="pj-title">Level Infinite</h3>
+            <p class="pj-desc">Gaming campaign for Level Infinite titles — from esports event activations to digital media buying that reached millions of players across the region.</p>
+          </div>
         </div>
 
       </div>
@@ -204,26 +175,29 @@
   </section>
 
   <!-- =====================
-       MAP
+       CTA
   ===================== -->
-  <div class="contact-map-section">
-    <div class="contact-map-inner">
-      <div class="s-header reveal">
-        <span class="s-tag">Find Us</span>
-        <h2 class="s-title">Our location</h2>
-        <p class="s-desc">Visit us at the 5th Floor, Salustiana D. Ty Tower, 104 Paseo de Roxas Avenue, Makati City.</p>
-      </div>
-      <div class="map-frame reveal d1">
-        <iframe
-          src="https://maps.google.com/maps?q=Salustiana+D.+Ty+Tower,+104+Paseo+de+Roxas+Ave,+Makati+City,+Metro+Manila,+Philippines&t=&z=17&ie=UTF8&iwloc=&output=embed"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Dragon AI — 5th Floor Salustiana D. Ty Tower, 104 Paseo de Roxas Ave, Makati City">
-        </iframe>
+  <section class="cta-section">
+    <div class="cta-box reveal">
+      <div class="cta-glow"></div>
+      <span class="s-tag">Get Started</span>
+      <h2 class="cta-title">
+        Ready to build your next<br>
+        <span class="grad-text">breakthrough campaign?</span>
+      </h2>
+      <p class="cta-desc">
+        Join hundreds of brands across the Philippines and APAC that trust Dragon AI to power
+        their marketing growth. Let's build something remarkable together.
+      </p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">
+          Start a Conversation
+          <i class="fi fi-rr-arrow-right btn-icon"></i>
+        </a>
+        <a href="index.html#services" class="btn-ghost">View Our Services</a>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- =====================
        FOOTER
@@ -304,7 +278,9 @@
 
     /* Theme toggle */
     const themeToggle = document.getElementById('themeToggle');
-    if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+    }
     themeToggle.addEventListener('click', () => {
       const isLight = document.body.classList.toggle('light');
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
@@ -317,30 +293,6 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    /* Contact form — success state */
-    const form       = document.getElementById('contactForm');
-    const successBox = document.getElementById('formSuccess');
-    const submitBtn  = document.getElementById('submitBtn');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      /* Basic validation */
-      const name    = form.querySelector('#fname').value.trim();
-      const email   = form.querySelector('#femail').value.trim();
-      const message = form.querySelector('#fmessage').value.trim();
-      if (!name || !email || !message) return;
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-
-      /* Simulate send delay then show success */
-      setTimeout(() => {
-        form.style.display = 'none';
-        successBox.classList.add('visible');
-      }, 900);
-    });
   </script>
 
 </body>
