@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivo — Dragon AI Projects</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Flaticon Uicons -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css">
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="index.css">
+
+  <!-- Flash prevention -->
+  <script>if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light-early');</script>
+
+  <style>
+    /* ===========================
+       PROJECT HERO
+    =========================== */
+    .project-hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 140px 32px 96px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 44px;
+      font-size: .75rem;
+      color: var(--text-muted);
+    }
+
+    .project-breadcrumb a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .project-breadcrumb a:hover { color: var(--primary-lt); }
+    .project-breadcrumb-sep { opacity: .4; font-size: .85rem; }
+
+    .project-hero-content {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .project-brand-logo {
+      width: 160px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    .project-category-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .project-category-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--primary-lt);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .project-category-text {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--primary-lt);
+    }
+
+    .project-title {
+      font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+
+    .project-title-zh {
+      font-size: clamp(.95rem, 1.8vw, 1.2rem);
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: .04em;
+      margin-bottom: 30px;
+    }
+
+    .project-about {
+      font-size: .975rem;
+      color: var(--text-sec);
+      max-width: 620px;
+      line-height: 1.84;
+      margin-bottom: 34px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tag {
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(232, 56, 13, .35);
+      background: rgba(232, 56, 13, .08);
+      color: var(--primary-lt);
+    }
+
+    /* Meta sidebar card */
+    .project-meta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 96px;
+    }
+
+    .project-meta-item {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-meta-item:first-child { padding-top: 0; }
+    .project-meta-item:last-child  { padding-bottom: 0; border-bottom: none; }
+
+    .project-meta-label {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .project-meta-value {
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       CAMPAIGN SECTIONS
+    =========================== */
+    .campaign-section {
+      padding: 88px 32px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .campaign-section.alt {
+      background: var(--surface);
+    }
+
+    .campaign-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .campaign-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .campaign-header.no-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .campaign-num {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .campaign-category-label {
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--primary-lt);
+      margin-bottom: 16px;
+    }
+
+    .campaign-title {
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.16;
+      letter-spacing: -.025em;
+      margin-bottom: 10px;
+    }
+
+    .campaign-title-zh {
+      font-size: .85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: .06em;
+      margin-bottom: 20px;
+    }
+
+    .campaign-desc {
+      font-size: .9rem;
+      color: var(--text-sec);
+      line-height: 1.84;
+    }
+
+    .campaign-desc + .campaign-desc {
+      margin-top: 14px;
+    }
+
+    .campaign-venue {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 22px;
+    }
+
+    .campaign-venue i { color: var(--primary); font-size: .7rem; }
+
+    /* Image gallery */
+    .campaign-gallery {
+      display: grid;
+      gap: 14px;
+    }
+
+    .campaign-gallery.g2 { grid-template-columns: repeat(2, 1fr); }
+    .campaign-gallery.g3 { grid-template-columns: repeat(3, 1fr); }
+    .campaign-gallery.g1 { grid-template-columns: 1fr; }
+
+    /* Full-width gallery strip below header */
+    .campaign-gallery-strip {
+      display: grid;
+      gap: 14px;
+    }
+
+    .campaign-gallery-strip.s2 { grid-template-columns: repeat(2, 1fr); }
+    .campaign-gallery-strip.s3 { grid-template-columns: repeat(3, 1fr); }
+    .campaign-gallery-strip.s1 { grid-template-columns: 1fr; }
+
+    .gallery-item {
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      position: relative;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item.wide { aspect-ratio: 16 / 9; }
+    .gallery-item.tall { aspect-ratio: 3 / 4; }
+    .gallery-item.sq   { aspect-ratio: 1 / 1; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 100%);
+      font-size: .7rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.88);
+      letter-spacing: .04em;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* V60 Lite layout: large left + 2x2 right */
+    .campaign-lite-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .campaign-lite-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* ===========================
+       BACK TO PROJECTS
+    =========================== */
+    .project-nav-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-sec);
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: all .25s;
+    }
+
+    .project-back-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary-lt);
+    }
+
+    .project-back-btn i { font-size: .75rem; }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1024px) {
+      .project-hero-content {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .project-meta-card { position: static; }
+
+      .campaign-header {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        margin-bottom: 36px;
+      }
+
+      .campaign-gallery.g3 { grid-template-columns: repeat(2, 1fr); }
+      .campaign-gallery-strip.s3 { grid-template-columns: repeat(2, 1fr); }
+      .campaign-lite-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .project-hero { padding: 120px 22px 72px; }
+      .campaign-section { padding: 60px 22px; }
+      .project-nav-bar { padding: 20px 22px; }
+
+      .campaign-gallery.g2 { grid-template-columns: 1fr; }
+      .campaign-gallery.g3 { grid-template-columns: 1fr; }
+      .campaign-gallery-strip.s2 { grid-template-columns: 1fr; }
+      .campaign-gallery-strip.s3 { grid-template-columns: 1fr; }
+      .campaign-lite-grid { grid-template-columns: 1fr; }
+      .campaign-lite-right { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================
+       NAVBAR
+  ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon-frame">
+          <img src="Assets/DragonAi LOGO v3.png" alt="Dragon AI logo mark" class="logo-mark">
+        </div>
+        <span class="logo-wordmark">DRAGON<span class="logo-ai">AI</span></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html#features">Expertise</a></li>
+        <li class="nav-dropdown">
+          <a href="projects.html" class="nav-dropdown-toggle">Projects <i class="fi fi-rr-angle-small-down nav-dropdown-caret"></i></a>
+          <div class="nav-dropdown-menu">
+            <a href="events.html" class="nav-dropdown-item">
+              <div class="nav-dd-icon"><i class="fi fi-rr-calendar"></i></div>
+              <div>
+                <div class="nav-dd-label">Events</div>
+                <div class="nav-dd-sub">Community &amp; Brand Activations</div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li><a href="index.html#services">Services</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="contact.html" class="nav-cta">Get Started</a>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+          <svg class="icon-sun"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <div class="hamburger" id="hamburger" role="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- =====================
+       PROJECT HERO
+  ===================== -->
+  <section class="project-hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="project-hero-inner">
+
+      <div class="project-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="project-breadcrumb-sep">›</span>
+        <a href="projects.html">Projects</a>
+        <span class="project-breadcrumb-sep">›</span>
+        <span>Vivo</span>
+      </div>
+
+      <div class="project-hero-content">
+
+        <div class="reveal">
+          <img src="Assets/8 - vivo.png" alt="Vivo" class="project-brand-logo">
+
+          <div class="project-category-row">
+            <span class="project-category-dot"></span>
+            <span class="project-category-text">Projects &nbsp;·&nbsp; Product Launch Events &nbsp;·&nbsp; 产品发布会</span>
+          </div>
+
+          <h1 class="project-title">Vivo</h1>
+          <p class="project-title-zh">菲律宾旗舰新品发布活动</p>
+
+          <p class="project-about">
+            Dragon AI partnered with Vivo Philippines across multiple flagship product launch events — producing full-scale experiential activations for the V40, V60, and V60 Lite series. From grand stage productions and immersive brand zones to celebrity appearances and esports showmatches, each launch was crafted to generate maximum buzz and drive consumer excitement nationwide.
+          </p>
+
+          <div class="project-tags">
+            <span class="project-tag">Product Launch</span>
+            <span class="project-tag">Event Production</span>
+            <span class="project-tag">Brand Activation</span>
+            <span class="project-tag">Experiential</span>
+            <span class="project-tag">产品发布会</span>
+          </div>
+        </div>
+
+        <div class="project-meta-card reveal d2">
+          <div class="project-meta-item">
+            <div class="project-meta-label">Client</div>
+            <div class="project-meta-value">Vivo Philippines</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Campaign Type</div>
+            <div class="project-meta-value">Product Launch Events</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Market</div>
+            <div class="project-meta-value">Philippines</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Services</div>
+            <div class="project-meta-value">Event Production<br>Brand Activation<br>Experiential Design</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Campaigns</div>
+            <div class="project-meta-value">3 Launch Events</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       CAMPAIGN 01 — V40 Product Launch Event
+  ===================== -->
+  <section class="campaign-section">
+    <div class="campaign-inner">
+
+      <div class="campaign-header no-gallery">
+        <div class="reveal">
+          <div class="campaign-num">Campaign 01</div>
+          <div class="campaign-category-label">Product Launch Event &nbsp;·&nbsp; 产品发布会</div>
+          <h2 class="campaign-title">Vivo V40<br>Product Launch Event</h2>
+          <p class="campaign-title-zh">Vivo V40 产品发布会</p>
+          <p class="campaign-desc">
+            Dragon AI produced the grand launch event for the Vivo V40 series in the Philippines — a high-energy showcase featuring a stunning main stage production, live performances, and an exclusive hands-on experience zone for media, influencers, and VIP guests.
+          </p>
+          <p class="campaign-desc">
+            The launch highlighted the V40's ZEISS co-engineered camera system through live demonstrations and portrait showcases, driving massive social media coverage and brand awareness across Filipino tech and lifestyle communities.
+          </p>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s3 reveal">
+        <div class="gallery-item">
+          <img src="Assets/vivo/v40 launch 1.png" alt="Vivo V40 Launch Stage" loading="lazy">
+          <span class="gallery-caption">V40 Launch Main Stage</span>
+        </div>
+        <div class="gallery-item">
+          <img src="Assets/vivo/v40 launch 2.png" alt="Vivo V40 ZEISS Display" loading="lazy">
+          <span class="gallery-caption">ZEISS Portrait So Pro Display</span>
+        </div>
+        <div class="gallery-item">
+          <img src="Assets/vivo/v40 launch 3.png" alt="Vivo V40 Launch Event Guests" loading="lazy">
+          <span class="gallery-caption">Media &amp; Influencer Experience Zone</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       CAMPAIGN 02 — 2025 V60 Product Launch Event
+  ===================== -->
+  <section class="campaign-section alt">
+    <div class="campaign-inner">
+
+      <div class="campaign-header no-gallery">
+        <div class="reveal">
+          <div class="campaign-num">Campaign 02</div>
+          <div class="campaign-category-label">Product Launch Event &nbsp;·&nbsp; 产品发布会</div>
+          <h2 class="campaign-title">2025 Vivo V60<br>Product Launch Event</h2>
+          <p class="campaign-title-zh">2025年 Vivo V60 产品发布会</p>
+          <p class="campaign-desc">
+            For the Vivo V60 launch, Dragon AI delivered an elevated event experience — featuring a sleek main stage presentation, a curated photo gallery corridor showcasing the V60's ZEISS Portrait So Pro capabilities, and an immersive brand exhibit complete with product display stations and lifestyle zones.
+          </p>
+          <p class="campaign-desc">
+            The event drew top media personalities, tech influencers, and industry guests, generating extensive press coverage and organic social content that amplified the V60's premium positioning in the Philippine market.
+          </p>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s3 reveal">
+        <div class="gallery-item">
+          <img src="Assets/vivo/v60 launch 1.png" alt="Vivo V60 Launch Main Stage" loading="lazy">
+          <span class="gallery-caption">V60 Launch Main Stage</span>
+        </div>
+        <div class="gallery-item">
+          <img src="Assets/vivo/v60 launch 2.png" alt="Vivo V60 ZEISS Photo Gallery Corridor" loading="lazy">
+          <span class="gallery-caption">ZEISS Photo Gallery Corridor</span>
+        </div>
+        <div class="gallery-item">
+          <img src="Assets/vivo/v60 launch 3.png" alt="Vivo V60 Brand Exhibit" loading="lazy">
+          <span class="gallery-caption">Brand Exhibit &amp; Product Stations</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       CAMPAIGN 03 — 2025 V60 Lite Product Launch Event
+  ===================== -->
+  <section class="campaign-section">
+    <div class="campaign-inner">
+
+      <div class="campaign-header no-gallery">
+        <div class="reveal">
+          <div class="campaign-num">Campaign 03</div>
+          <div class="campaign-category-label">Product Launch Event &nbsp;·&nbsp; 产品发布会</div>
+          <h2 class="campaign-title">2025 Vivo V60 Lite<br>Product Launch Event</h2>
+          <p class="campaign-title-zh">2025年 Vivo V60 Lite 产品发布会</p>
+          <p class="campaign-desc">
+            The Vivo V60 Lite launch was a multi-concept experiential event produced by Dragon AI — combining a full product showcase with an HOK × Vivo esports showmatch featuring top Filipino content creators and gaming personalities. The vibrant, youth-focused activation brought together tech, gaming, and pop culture under one roof.
+          </p>
+          <p class="campaign-desc">
+            From the eye-catching pastel stage design to the packed audience floor, the event delivered a high-energy brand moment that resonated strongly with Vivo's target Gen Z and millennial audience.
+          </p>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s3 reveal">
+        <div class="gallery-item">
+          <img src="Assets/vivo/v60 lite launch 1.png" alt="Vivo V60 Lite HOK Showmatch" loading="lazy">
+          <span class="gallery-caption">HOK × Vivo V60 Lite Showmatch</span>
+        </div>
+        <div class="gallery-item">
+          <img src="Assets/vivo/v60 lite launch 2.png" alt="Vivo V60 Lite Event Entrance" loading="lazy">
+          <span class="gallery-caption">Event Entrance</span>
+        </div>
+        <div class="gallery-item">
+          <img src="Assets/vivo/v60 lite launch 3.png" alt="Vivo V60 Lite Stage Setup" loading="lazy">
+          <span class="gallery-caption">Main Stage Setup</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       BACK TO PROJECTS + CTA
+  ===================== -->
+  <div class="project-nav-bar">
+    <div class="project-nav-inner">
+      <a href="projects.html" class="project-back-btn">
+        <i class="fi fi-rr-arrow-left"></i>
+        Back to Projects
+      </a>
+      <a href="contact.html" class="btn-primary">
+        Work With Us
+        <i class="fi fi-rr-arrow-right btn-icon"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- =====================
+       CTA
+  ===================== -->
+  <section class="cta-section">
+    <div class="cta-box reveal">
+      <div class="cta-glow"></div>
+      <span class="s-tag">Get Started</span>
+      <h2 class="cta-title">
+        Ready to make your next launch<br>
+        <span class="grad-text">impossible to ignore?</span>
+      </h2>
+      <p class="cta-desc">
+        Dragon AI delivers high-impact product launch events, brand activations, and experiential campaigns across the Philippines and APAC. Let's create something remarkable together.
+      </p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">
+          Start a Conversation
+          <i class="fi fi-rr-arrow-right btn-icon"></i>
+        </a>
+        <a href="projects.html" class="btn-ghost">View More Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       FOOTER
+  ===================== -->
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="footer-logo-frame">
+            <img src="Assets/DragonAi LOGO v3.png" alt="Dragon AI logo mark" class="logo-mark">
+          </div>
+          <span class="logo-wordmark">DRAGON<span class="logo-ai">AI</span></span>
+        </a>
+        <p>Dragon AI Media Inc. is the advertising subsidiary of Philippine Dragon Media Network — one of the most influential Chinese news platforms in the Philippines.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="index.html#services">Creative Services</a></li>
+          <li><a href="index.html#services">Media Buying</a></li>
+          <li><a href="index.html#services">Partnerships</a></li>
+          <li><a href="index.html#services">Production</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@dragonai.ph">hello@dragonai.ph</a></li>
+          <li><a href="#">Manila, Philippines</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Dragon AI Media Inc. All Rights Reserved.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
+        <a href="#" class="social-btn" aria-label="X / Twitter"><i class="fi fi-brands-twitter"></i></a>
+        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fi fi-brands-linkedin"></i></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================
+       JAVASCRIPT
+  ===================== -->
+  <script>
+    /* Navbar scroll */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* Mobile menu */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+
+    /* Theme toggle */
+    const themeToggle = document.getElementById('themeToggle');
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+    }
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    /* Scroll reveal */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
