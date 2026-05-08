@@ -887,26 +887,30 @@ section { padding: 96px 32px; }
   padding: 0 32px;
 }
 
-/* Auto-step marquee track */
+/* Infinite marquee track */
 .marquee-track {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  overflow: hidden;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   mask-image:         linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   padding: 12px 0 16px;
 }
-
-.marquee-track::-webkit-scrollbar { display: none; }
 
 .marquee-inner {
   display: flex;
   align-items: center;
   gap: 20px;
   width: max-content;
-  padding: 0 48px;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-track:hover .marquee-inner {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Individual logo card — works as both div and anchor */

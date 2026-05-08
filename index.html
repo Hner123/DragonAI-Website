@@ -606,34 +606,9 @@
       sessionStorage.setItem('scrollY', window.scrollY);
     });
 
-    /* Partners auto-step marquee */
-    const partnersTrack = document.querySelector('.marquee-track');
+    /* Partners infinite marquee — clone chips for seamless loop */
     const partnersInner = document.querySelector('.marquee-inner');
-    const CHIP_STEP = 280; // chip width (260) + gap (20)
-    let chipIndex = 0;
-    let marqueePaused = false;
-
-    // Clone all chips once for seamless infinite loop
-    const origChips = [...partnersInner.children];
-    const origCount = origChips.length;
-    origChips.forEach(c => partnersInner.appendChild(c.cloneNode(true)));
-
-    function marqueeStep() {
-      if (marqueePaused) return;
-      chipIndex++;
-      if (chipIndex >= origCount) {
-        // Instant reset to start, then continue
-        partnersTrack.scrollLeft = 0;
-        chipIndex = 0;
-        return;
-      }
-      partnersTrack.scrollTo({ left: chipIndex * CHIP_STEP, behavior: 'smooth' });
-    }
-
-    setInterval(marqueeStep, 1000);
-
-    partnersTrack.addEventListener('mouseenter', () => { marqueePaused = true; });
-    partnersTrack.addEventListener('mouseleave', () => { marqueePaused = false; });
+    [...partnersInner.children].forEach(c => partnersInner.appendChild(c.cloneNode(true)));
 
     /* Scroll reveal */
     const io = new IntersectionObserver((entries) => {
