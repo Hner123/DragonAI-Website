@@ -1,6 +1,6 @@
 (function () {
-  const API_KEY = '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';
-  const MODEL   = 'llama3-8b-8192';
+  const API_KEY = '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';
+  const MODEL   = 'llama-3.1-8b-instant';
   const SYSTEM  = `You are Dragon AI's friendly website assistant. Dragon AI Media Inc. is an advertising and marketing agency in the Philippines — a subsidiary of Philippine Dragon Media Network, one of the most influential Chinese-Filipino media platforms in the country. Services include Out-of-Home (OOH) advertising, 3D billboard productions, transit media, product launch events, brand activations, creative services, and media buying. Notable clients include Honor of Kings (Tencent), Vivo Philippines, Alibaba Cloud, Haier, Haidilao, OMODA/JAECOO, and Level Infinite. Be concise, warm, and helpful. For inquiries direct users to hello@dragonai.ph or the contact page.`;
 
   /* ── Styles ── */
@@ -164,12 +164,13 @@
         })
       });
       const data = await res.json();
-      const reply = data.choices?.[0]?.message?.content || 'Sorry, something went wrong. Try again!';
+      if (!res.ok) throw new Error(data.error?.message || `API error ${res.status}`);
+      const reply = data.choices?.[0]?.message?.content || 'Sorry, I could not generate a response.';
       typing.textContent = reply;
       typing.classList.remove('typing');
       history.push({ role: 'assistant', content: reply });
-    } catch {
-      typing.textContent = 'Connection error. Please try again.';
+    } catch (err) {
+      typing.textContent = err.message || 'Connection error. Please try again.';
       typing.classList.remove('typing');
     }
 
