@@ -606,42 +606,34 @@
       sessionStorage.setItem('scrollY', window.scrollY);
     });
 
-    /* Partners drag-to-scroll */
+    /* Partners auto-step marquee */
     const partnersTrack = document.querySelector('.marquee-track');
-    let isDragging = false, hasDragged = false, startX, scrollStart;
+    const partnersInner = document.querySelector('.marquee-inner');
+    const CHIP_STEP = 280; // chip width (260) + gap (20)
+    let chipIndex = 0;
+    let marqueePaused = false;
 
-    partnersTrack.addEventListener('mousedown', e => {
-      isDragging  = true;
-      hasDragged  = false;
-      startX      = e.clientX;
-      scrollStart = partnersTrack.scrollLeft;
-    });
+    // Clone all chips once for seamless infinite loop
+    const origChips = [...partnersInner.children];
+    const origCount = origChips.length;
+    origChips.forEach(c => partnersInner.appendChild(c.cloneNode(true)));
 
-    document.addEventListener('mousemove', e => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      if (Math.abs(dx) > 5) {
-        hasDragged = true;
-        partnersTrack.classList.add('is-dragging');
-        e.preventDefault();
+    function marqueeStep() {
+      if (marqueePaused) return;
+      chipIndex++;
+      if (chipIndex >= origCount) {
+        // Instant reset to start, then continue
+        partnersTrack.scrollLeft = 0;
+        chipIndex = 0;
+        return;
       }
-      if (hasDragged) {
-        partnersTrack.scrollLeft = scrollStart - dx;
-      }
-    });
+      partnersTrack.scrollTo({ left: chipIndex * CHIP_STEP, behavior: 'smooth' });
+    }
 
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-      partnersTrack.classList.remove('is-dragging');
-    });
+    setInterval(marqueeStep, 1000);
 
-    /* Block navigation only when a real drag occurred */
-    partnersTrack.addEventListener('click', e => {
-      if (hasDragged) {
-        e.preventDefault();
-        hasDragged = false;
-      }
-    });
+    partnersTrack.addEventListener('mouseenter', () => { marqueePaused = true; });
+    partnersTrack.addEventListener('mouseleave', () => { marqueePaused = false; });
 
     /* Scroll reveal */
     const io = new IntersectionObserver((entries) => {

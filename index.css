@@ -887,12 +887,11 @@ section { padding: 96px 32px; }
   padding: 0 32px;
 }
 
-/* Drag-scroll track — fade edges */
+/* Auto-step marquee track */
 .marquee-track {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
@@ -901,15 +900,6 @@ section { padding: 96px 32px; }
 }
 
 .marquee-track::-webkit-scrollbar { display: none; }
-
-.marquee-track.is-dragging {
-  cursor: grabbing;
-  user-select: none;
-}
-
-.marquee-track.is-dragging .logo-chip {
-  pointer-events: none;
-}
 
 .marquee-inner {
   display: flex;
