@@ -728,6 +728,15 @@ body.light .hero-video-text .hvt-desc  { color: rgba(255,255,255,.78); }
 .hero-visual { display: flex; align-items: center; justify-content: center; }
 .hero-card-stack { position: relative; width: 100%; max-width: 400px; }
 
+.hero-logo-visual {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 48px rgba(232, 56, 13, .35)) drop-shadow(0 0 120px rgba(232, 56, 13, .15));
+}
+
 .hero-main-card {
   background: var(--surface);
   border: 1px solid var(--border);
