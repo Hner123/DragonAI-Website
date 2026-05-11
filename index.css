@@ -178,10 +178,8 @@ body.light .navbar.scrolled {
 
 /* Footer logo — slightly smaller */
 .footer-logo-frame {
-  width: 34px;
   height: 34px;
-  overflow: hidden;
-  border-radius: 6px;
+  width: auto;
   flex-shrink: 0;
 }
 
