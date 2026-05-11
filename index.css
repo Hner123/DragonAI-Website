@@ -904,8 +904,20 @@ section { padding: 96px 32px; }
   animation: marquee-scroll 30s linear infinite;
 }
 
-.marquee-track:hover .marquee-inner {
-  animation-play-state: paused;
+.marquee-track {
+  cursor: grab;
+}
+
+.marquee-track.is-dragging {
+  cursor: grabbing;
+}
+
+.marquee-track.is-dragging .logo-chip {
+  cursor: grabbing;
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: var(--border) !important;
+  transition: none !important;
 }
 
 @keyframes marquee-scroll {

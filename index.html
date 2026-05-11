@@ -610,6 +610,84 @@
     const partnersInner = document.querySelector('.marquee-inner');
     [...partnersInner.children].forEach(c => partnersInner.appendChild(c.cloneNode(true)));
 
+    /* Partners marquee — hover pause + drag to scroll */
+    (function () {
+      const track = document.querySelector('.marquee-track');
+      const inner = document.querySelector('.marquee-inner');
+      if (!track || !inner) return;
+
+      const DURATION = 30;
+      let isDragging = false;
+      let isHovering = false;
+      let startX = 0;
+      let startTx = 0;
+      let didDrag = false;
+
+      function getCurrentTx() {
+        return new DOMMatrix(getComputedStyle(inner).transform).m41;
+      }
+
+      function wrapTx(tx) {
+        const half = inner.scrollWidth / 2;
+        if (tx > 0) return tx - half;
+        if (tx < -half) return tx + half;
+        return tx;
+      }
+
+      /* Hover pause (JS-driven so drag can override cleanly) */
+      track.addEventListener('mouseenter', () => {
+        isHovering = true;
+        if (!isDragging) inner.style.animationPlayState = 'paused';
+      });
+      track.addEventListener('mouseleave', () => {
+        isHovering = false;
+        if (!isDragging) inner.style.animationPlayState = 'running';
+      });
+
+      function beginDrag(clientX) {
+        isDragging = true;
+        didDrag = false;
+        startX = clientX;
+        startTx = getCurrentTx();
+        inner.style.animation = 'none';
+        inner.style.transform = `translateX(${startTx}px)`;
+        track.classList.add('is-dragging');
+      }
+
+      function moveDrag(clientX) {
+        if (!isDragging) return;
+        const delta = clientX - startX;
+        if (Math.abs(delta) > 4) didDrag = true;
+        inner.style.transform = `translateX(${wrapTx(startTx + delta)}px)`;
+      }
+
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('is-dragging');
+
+        const currentTx = getCurrentTx();
+        const delay = -(Math.abs(currentTx) / (inner.scrollWidth / 2)) * DURATION;
+        inner.style.transform = '';
+        inner.style.animation = `marquee-scroll ${DURATION}s linear ${delay}s infinite`;
+        inner.style.animationPlayState = isHovering ? 'paused' : 'running';
+      }
+
+      track.addEventListener('mousedown', e => { beginDrag(e.clientX); e.preventDefault(); });
+      document.addEventListener('mousemove', e => moveDrag(e.clientX));
+      document.addEventListener('mouseup', () => endDrag());
+
+      /* Prevent link navigation after a drag */
+      track.addEventListener('click', e => {
+        if (didDrag) { e.preventDefault(); didDrag = false; }
+      }, true);
+
+      /* Touch support */
+      track.addEventListener('touchstart', e => beginDrag(e.touches[0].clientX), { passive: true });
+      document.addEventListener('touchmove', e => { if (isDragging) moveDrag(e.touches[0].clientX); }, { passive: true });
+      document.addEventListener('touchend', () => endDrag());
+    })();
+
     /* Scroll reveal */
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
