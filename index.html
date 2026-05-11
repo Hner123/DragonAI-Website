@@ -590,6 +590,29 @@
       sessionStorage.setItem('scrollY', window.scrollY);
     });
 
+    /* Partners section — center in viewport on anchor nav */
+    function scrollPartnersToCenter() {
+      const el = document.getElementById('partners');
+      if (!el) return;
+      const elRect   = el.getBoundingClientRect();
+      const elCenter = elRect.top + window.scrollY + elRect.height / 2;
+      const target   = elCenter - window.innerHeight / 2;
+      window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('a[href="#partners"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        scrollPartnersToCenter();
+        history.pushState(null, '', '#partners');
+      });
+    });
+
+    if (window.location.hash === '#partners') {
+      history.replaceState(null, '', location.pathname);
+      requestAnimationFrame(() => requestAnimationFrame(scrollPartnersToCenter));
+    }
+
     /* Partners infinite marquee — clone chips for seamless loop */
     const partnersInner = document.querySelector('.marquee-inner');
     [...partnersInner.children].forEach(c => partnersInner.appendChild(c.cloneNode(true)));
