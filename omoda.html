@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMODA | JAECOO — Dragon AI Projects</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Flaticon Uicons -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css">
+
+  <!-- Base styles -->
+  <link rel="stylesheet" href="index.css">
+
+  <!-- Flash prevention -->
+  <script>if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light-early');</script>
+
+  <style>
+    /* ===========================
+       PROJECT HERO
+    =========================== */
+    .project-hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 140px 32px 96px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 44px;
+      font-size: .75rem;
+      color: var(--text-muted);
+    }
+
+    .project-breadcrumb a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .project-breadcrumb a:hover { color: var(--primary-lt); }
+    .project-breadcrumb-sep { opacity: .4; font-size: .85rem; }
+
+    .project-hero-content {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .project-brand-logo {
+      width: 220px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    .project-category-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .project-category-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--primary-lt);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .project-category-text {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--primary-lt);
+    }
+
+    .project-title {
+      font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+
+    .project-title-zh {
+      font-size: clamp(.95rem, 1.8vw, 1.2rem);
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: .04em;
+      margin-bottom: 30px;
+    }
+
+    .project-about {
+      font-size: .975rem;
+      color: var(--text-sec);
+      max-width: 620px;
+      line-height: 1.84;
+      margin-bottom: 34px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tag {
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(232, 56, 13, .35);
+      background: rgba(232, 56, 13, .08);
+      color: var(--primary-lt);
+    }
+
+    /* Meta sidebar card */
+    .project-meta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 96px;
+    }
+
+    .project-meta-item {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-meta-item:first-child { padding-top: 0; }
+    .project-meta-item:last-child  { padding-bottom: 0; border-bottom: none; }
+
+    .project-meta-label {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .project-meta-value {
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       CAMPAIGN SECTIONS
+    =========================== */
+    .campaign-section {
+      padding: 88px 32px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .campaign-section.alt {
+      background: var(--surface);
+    }
+
+    .campaign-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .campaign-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .campaign-header.no-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .campaign-num {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .campaign-category-label {
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--primary-lt);
+      margin-bottom: 16px;
+    }
+
+    .campaign-title {
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.16;
+      letter-spacing: -.025em;
+      margin-bottom: 10px;
+    }
+
+    .campaign-title-zh {
+      font-size: .85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: .06em;
+      margin-bottom: 20px;
+    }
+
+    .campaign-desc {
+      font-size: .9rem;
+      color: var(--text-sec);
+      line-height: 1.84;
+    }
+
+    .campaign-desc + .campaign-desc {
+      margin-top: 14px;
+    }
+
+    .campaign-venue {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 22px;
+    }
+
+    .campaign-venue i { color: var(--primary); font-size: .7rem; }
+
+    /* Image gallery */
+    .campaign-gallery {
+      display: grid;
+      gap: 14px;
+    }
+
+    .campaign-gallery.g2 { grid-template-columns: repeat(2, 1fr); }
+    .campaign-gallery.g3 { grid-template-columns: repeat(3, 1fr); }
+    .campaign-gallery.g1 { grid-template-columns: 1fr; }
+
+    /* Full-width gallery strip below header */
+    .campaign-gallery-strip {
+      display: grid;
+      gap: 14px;
+    }
+
+    .campaign-gallery-strip.s2 { grid-template-columns: repeat(2, 1fr); }
+    .campaign-gallery-strip.s3 { grid-template-columns: repeat(3, 1fr); }
+    .campaign-gallery-strip.s1 { grid-template-columns: 1fr; }
+
+    .gallery-item {
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      position: relative;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item.wide { aspect-ratio: 16 / 9; }
+    .gallery-item.tall { aspect-ratio: 3 / 4; }
+    .gallery-item.sq   { aspect-ratio: 1 / 1; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 14px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 100%);
+      font-size: .7rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.88);
+      letter-spacing: .04em;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+
+    /* ===========================
+       BACK TO PROJECTS
+    =========================== */
+    .project-nav-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-sec);
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: all .25s;
+    }
+
+    .project-back-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary-lt);
+    }
+
+    .project-back-btn i { font-size: .75rem; }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1024px) {
+      .project-hero-content {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .project-meta-card { position: static; }
+
+      .campaign-header {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        margin-bottom: 36px;
+      }
+
+      .campaign-gallery.g3 { grid-template-columns: repeat(2, 1fr); }
+      .campaign-gallery-strip.s3 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .project-hero { padding: 120px 22px 72px; }
+      .campaign-section { padding: 60px 22px; }
+      .project-nav-bar { padding: 20px 22px; }
+
+      .campaign-gallery.g2 { grid-template-columns: 1fr; }
+      .campaign-gallery.g3 { grid-template-columns: 1fr; }
+      .campaign-gallery-strip.s2 { grid-template-columns: 1fr; }
+      .campaign-gallery-strip.s3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =====================
+       NAVBAR
+  ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon-frame">
+          <img src="Assets/DragonAi LOGO v3.png" alt="Dragon AI logo mark" class="logo-mark">
+        </div>
+        <span class="logo-wordmark">DRAGON<span class="logo-ai">AI</span></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html#features">Expertise</a></li>
+        <li class="nav-dropdown">
+          <a href="projects.html" class="nav-dropdown-toggle">Projects <i class="fi fi-rr-angle-small-down nav-dropdown-caret"></i></a>
+          <div class="nav-dropdown-menu">
+            <a href="events.html" class="nav-dropdown-item">
+              <div class="nav-dd-icon"><i class="fi fi-rr-calendar"></i></div>
+              <div>
+                <div class="nav-dd-label">Events</div>
+                <div class="nav-dd-sub">Community &amp; Brand Activations</div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li><a href="index.html#services">Services</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="contact.html" class="nav-cta">Get Started</a>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+          <svg class="icon-sun"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <div class="hamburger" id="hamburger" role="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- =====================
+       PROJECT HERO
+  ===================== -->
+  <section class="project-hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="project-hero-inner">
+
+      <div class="project-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="project-breadcrumb-sep">›</span>
+        <a href="projects.html">Projects</a>
+        <span class="project-breadcrumb-sep">›</span>
+        <span>OMODA | JAECOO</span>
+      </div>
+
+      <div class="project-hero-content">
+
+        <div class="reveal">
+          <img src="Assets/oj.png" alt="OMODA | JAECOO" class="project-brand-logo">
+
+          <div class="project-category-row">
+            <span class="project-category-dot"></span>
+            <span class="project-category-text">Projects &nbsp;·&nbsp; Auto Launch &amp; Activations &nbsp;·&nbsp; 品牌发布 &amp; 展会活动</span>
+          </div>
+
+          <h1 class="project-title">OMODA | JAECOO</h1>
+          <p class="project-title-zh">菲律宾汽车品牌发布与展会活动</p>
+
+          <p class="project-about">
+            Dragon AI partnered with OMODA | JAECOO to spearhead the brand's full-scale launch and sustained presence across the Philippine market — from a landmark brand launch event and major auto show exhibitions to immersive test drive experiences and large-scale outdoor activations. Every campaign was engineered to position OMODA | JAECOO as the standout automotive force in the Philippines.
+          </p>
+
+          <div class="project-tags">
+            <span class="project-tag">Brand Launch</span>
+            <span class="project-tag">Auto Show</span>
+            <span class="project-tag">Test Drive Events</span>
+            <span class="project-tag">OOH Activations</span>
+            <span class="project-tag">品牌发布会</span>
+            <span class="project-tag">展会活动</span>
+          </div>
+        </div>
+
+        <div class="project-meta-card reveal d2">
+          <div class="project-meta-item">
+            <div class="project-meta-label">Client</div>
+            <div class="project-meta-value">OMODA | JAECOO Philippines</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Campaign Type</div>
+            <div class="project-meta-value">Auto Launch + Activations</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Market</div>
+            <div class="project-meta-value">Philippines</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Services</div>
+            <div class="project-meta-value">Event Production<br>Media Buying<br>OOH Advertising<br>Brand Activations</div>
+          </div>
+          <div class="project-meta-item">
+            <div class="project-meta-label">Campaigns</div>
+            <div class="project-meta-value">4 Activations</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       CAMPAIGN 01 — Brand Launch Event 2025
+  ===================== -->
+  <section class="campaign-section">
+    <div class="campaign-inner">
+
+      <div class="campaign-header no-gallery">
+        <div class="reveal">
+          <div class="campaign-num">Campaign 01</div>
+          <div class="campaign-category-label">Brand Launch Event &nbsp;·&nbsp; 品牌发布会</div>
+          <h2 class="campaign-title">Brand Launch Event 2025</h2>
+          <p class="campaign-title-zh">2025年品牌发布会</p>
+          <p class="campaign-desc">
+            Dragon AI orchestrated the grand Philippine brand launch of OMODA | JAECOO — a high-energy, full-scale launch event that introduced the brand to the Philippine automotive market with maximum impact. The event featured dramatic stage productions, live vehicle reveals, and immersive brand experiences designed to make an immediate and lasting impression.
+          </p>
+          <p class="campaign-desc">
+            From stage design and production coordination to media amplification, every element was crafted to position OMODA | JAECOO as a bold, forward-thinking automotive brand ready to dominate the Philippine market.
+          </p>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s3 reveal">
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/(first)launch2025-1.png" alt="OMODA JAECOO Brand Launch Event 2025" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Brand Launch Stage Production</span>
+        </div>
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/(first)launch2025-2.png" alt="OMODA JAECOO Launch Event Stage" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Live Vehicle Reveal</span>
+        </div>
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/(second)launch2025-1.png" alt="OMODA JAECOO Launch Event" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Launch Event Highlights</span>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s3 reveal" style="margin-top: 14px;">
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/(second)launch2025-2.png" alt="OMODA JAECOO Launch Night Activation" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Night Activation</span>
+        </div>
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/(second)launch2025-3.png" alt="OMODA JAECOO Outdoor Brand Activation" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Outdoor Brand Activation</span>
+        </div>
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/(second)launch2025-4.png" alt="OMODA JAECOO Brand Experience Zone" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Brand Experience Zone</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       CAMPAIGN 02 — 2025 Manila International Auto Show
+  ===================== -->
+  <section class="campaign-section alt">
+    <div class="campaign-inner">
+
+      <div class="campaign-header no-gallery">
+        <div class="reveal">
+          <div class="campaign-num">Campaign 02</div>
+          <div class="campaign-category-label">Auto Show Exhibition &nbsp;·&nbsp; 马尼拉国际车展</div>
+          <h2 class="campaign-title">2025 Manila International<br>Auto Show</h2>
+          <p class="campaign-title-zh">2025年马尼拉国际车展</p>
+          <p class="campaign-desc">
+            Dragon AI led OMODA | JAECOO's participation in the 2025 Manila International Auto Show — one of the Philippines' premier automotive events. The brand's booth was engineered for maximum visual impact, featuring sleek display setups, live vehicle demonstrations, and interactive brand experience zones that drew massive foot traffic throughout the show.
+          </p>
+          <p class="campaign-desc">
+            The campaign delivered strong brand visibility to thousands of automotive enthusiasts and media professionals, generating significant coverage and reinforcing OMODA | JAECOO's positioning as a serious contender in the Philippine automotive landscape.
+          </p>
+          <div class="campaign-venue">
+            <i class="fi fi-rr-marker"></i>
+            Manila, Philippines
+          </div>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s2 reveal">
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/mnl-autoshow-1.png" alt="OMODA JAECOO Manila International Auto Show 2025" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">OMODA | JAECOO Auto Show Booth</span>
+        </div>
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/mnl-autoshow-2.png" alt="OMODA JAECOO Auto Show Display" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Live Vehicle Display</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       CAMPAIGN 03 — 2025 Auto Focus Test Drive Event
+  ===================== -->
+  <section class="campaign-section">
+    <div class="campaign-inner">
+
+      <div class="campaign-header no-gallery">
+        <div class="reveal">
+          <div class="campaign-num">Campaign 03</div>
+          <div class="campaign-category-label">Test Drive Event &nbsp;·&nbsp; 马尼拉试驾车展</div>
+          <h2 class="campaign-title">2025 Auto Focus<br>Test Drive Event</h2>
+          <p class="campaign-title-zh">2025年马尼拉试驾车展</p>
+          <p class="campaign-desc">
+            Dragon AI produced and activated the OMODA | JAECOO presence at the 2025 Auto Focus Test Drive Event — a key consumer touchpoint that gave prospective buyers hands-on experience with the brand's lineup. The activation featured a premium outdoor display setup, dedicated test drive zones, and a fully branded experiential area designed to convert interest into purchase intent.
+          </p>
+          <p class="campaign-desc">
+            The event drew strong consumer participation, with hundreds of test drives conducted over the event period — establishing direct, personal connections between the brand and its target audience across Metro Manila.
+          </p>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s2 reveal">
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/autofocus-testdrive-event-1.png" alt="OMODA JAECOO Auto Focus Test Drive Event 2025" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Test Drive Event Setup</span>
+        </div>
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/autofocus-testdrive-event-2.png" alt="OMODA JAECOO Test Drive Experience" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Consumer Test Drive Experience</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       CAMPAIGN 04 — 2026 OJ MOA Concert Grounds
+  ===================== -->
+  <section class="campaign-section alt">
+    <div class="campaign-inner">
+
+      <div class="campaign-header no-gallery">
+        <div class="reveal">
+          <div class="campaign-num">Campaign 04</div>
+          <div class="campaign-category-label">Outdoor Activation &nbsp;·&nbsp; 马尼拉试驾活动</div>
+          <h2 class="campaign-title">2026 OJ MOA<br>Concert Grounds</h2>
+          <p class="campaign-title-zh">2026年马尼拉试驾活动</p>
+          <p class="campaign-desc">
+            Dragon AI executed a large-scale outdoor brand activation for OMODA | JAECOO at the SM Mall of Asia Concert Grounds — one of Metro Manila's highest-traffic public venues. The activation combined vehicle showcases, test drive experiences, and live event programming to engage thousands of potential buyers in an open, high-energy environment.
+          </p>
+          <p class="campaign-desc">
+            The MOA Concert Grounds activation reinforced OMODA | JAECOO's brand momentum in the Philippines, delivering mass consumer exposure and strengthening the brand's growing presence across the Metro Manila market.
+          </p>
+          <div class="campaign-venue">
+            <i class="fi fi-rr-marker"></i>
+            SM Mall of Asia Concert Grounds, Pasay City
+          </div>
+        </div>
+      </div>
+
+      <div class="campaign-gallery-strip s2 reveal">
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/oj-moa-concertground-1.png" alt="OMODA JAECOO MOA Concert Grounds Activation" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">MOA Concert Grounds — Brand Activation</span>
+        </div>
+        <div class="gallery-item wide">
+          <img src="Assets/OMODA-JAECOO/oj-moa-concertground-2.png" alt="OMODA JAECOO Outdoor Test Drive MOA" loading="lazy" onerror="this.style.opacity='0'">
+          <span class="gallery-caption">Outdoor Vehicle Showcase</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================
+       BACK TO PROJECTS + CTA
+  ===================== -->
+  <div class="project-nav-bar">
+    <div class="project-nav-inner">
+      <a href="projects.html" class="project-back-btn">
+        <i class="fi fi-rr-arrow-left"></i>
+        Back to Projects
+      </a>
+      <a href="contact.html" class="btn-primary">
+        Work With Us
+        <i class="fi fi-rr-arrow-right btn-icon"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- =====================
+       CTA
+  ===================== -->
+  <section class="cta-section">
+    <div class="cta-box reveal">
+      <div class="cta-glow"></div>
+      <span class="s-tag">Get Started</span>
+      <h2 class="cta-title">
+        Ready to launch your brand<br>
+        <span class="grad-text">across the Philippines?</span>
+      </h2>
+      <p class="cta-desc">
+        Dragon AI delivers full-scale brand launches, auto show activations, and high-impact event productions across the Philippines and APAC. Let's build something remarkable together.
+      </p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">
+          Start a Conversation
+          <i class="fi fi-rr-arrow-right btn-icon"></i>
+        </a>
+        <a href="projects.html" class="btn-ghost">View More Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       FOOTER
+  ===================== -->
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="footer-logo-frame">
+            <img src="Assets/DragonAi LOGO v3.png" alt="Dragon AI logo mark" class="logo-mark">
+          </div>
+          <span class="logo-wordmark">DRAGON<span class="logo-ai">AI</span></span>
+        </a>
+        <p>Dragon AI Media Inc. is the advertising subsidiary of Philippine Dragon Media Network — one of the most influential Chinese news platforms in the Philippines.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="index.html#services">Creative Services</a></li>
+          <li><a href="index.html#services">Media Buying</a></li>
+          <li><a href="index.html#services">Partnerships</a></li>
+          <li><a href="index.html#services">Production</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@dragonai.ph">hello@dragonai.ph</a></li>
+          <li><a href="#">Manila, Philippines</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Dragon AI Media Inc. All Rights Reserved.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Facebook"><i class="fi fi-brands-facebook"></i></a>
+        <a href="#" class="social-btn" aria-label="X / Twitter"><i class="fi fi-brands-twitter"></i></a>
+        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fi fi-brands-linkedin"></i></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><i class="fi fi-brands-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================
+       JAVASCRIPT
+  ===================== -->
+  <script>
+    /* Navbar scroll */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* Mobile menu */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+
+    /* Theme toggle */
+    const themeToggle = document.getElementById('themeToggle');
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+    }
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    /* Scroll reveal */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>
