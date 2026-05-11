@@ -735,6 +735,12 @@ body.light .hero-video-text .hvt-desc  { color: rgba(255,255,255,.78); }
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 0 48px rgba(232, 56, 13, .35)) drop-shadow(0 0 120px rgba(232, 56, 13, .15));
+  animation: hero-float 5s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
 }
 
 .hero-main-card {
