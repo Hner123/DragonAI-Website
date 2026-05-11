@@ -1069,7 +1069,9 @@ a.logo-chip { text-decoration: none; }
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 16px;
+  max-width: 900px;
+  margin-inline: auto;
 }
 
 .pj-card {
@@ -1089,7 +1091,7 @@ a.logo-chip { text-decoration: none; }
 .pj-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background: var(--surface2);
 }
@@ -1122,7 +1124,7 @@ a.logo-chip { text-decoration: none; }
 }
 
 .pj-body {
-  padding: 22px 26px 26px;
+  padding: 14px 16px 18px;
 }
 
 .pj-title {
