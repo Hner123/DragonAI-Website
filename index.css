@@ -1143,6 +1143,14 @@ a.logo-chip { text-decoration: none; }
   justify-content: center;
 }
 
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
 /* ===========================
    STATS BAR
 =========================== */
