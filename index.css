@@ -952,13 +952,14 @@ a.logo-chip { text-decoration: none; }
   flex-direction: column;
   align-items: center;
   cursor: grab;
+  padding: 10px;
   transition: box-shadow .35s ease, transform .35s ease, border-color .35s ease;
 }
 
 .logo-chip img {
   width: 100%;
   height: 140px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: transform .35s ease;
   pointer-events: none;
@@ -989,6 +990,14 @@ a.logo-chip { text-decoration: none; }
 
 .logo-chip:hover img {
   transform: scale(1.06);
+}
+
+body.light .logo-chip img {
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.5))
+          drop-shadow(0 -1px 0 rgba(0,0,0,.5))
+          drop-shadow(1px 0 0 rgba(0,0,0,.5))
+          drop-shadow(-1px 0 0 rgba(0,0,0,.5))
+          drop-shadow(0 2px 8px rgba(0,0,0,.2));
 }
 
 /* ===========================
